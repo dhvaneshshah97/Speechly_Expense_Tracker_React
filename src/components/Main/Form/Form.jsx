@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';
 import useStyles from './styles';
-
+import formatDate from '../../../utils/formatDate';
 import { ExpenseTrackerContext } from '../../../context/context';
 import { incomeCategories, expenseCategories } from '../../../constants/categories';
 
@@ -10,7 +10,7 @@ const initialState = {
     amount: '',
     category: '',
     type: 'Income',
-    date: new Date(),
+    date: formatDate(new Date()),
 }
 
 
@@ -57,7 +57,7 @@ const Form = () => {
                 <TextField type="number" label="Amount" fullWidth value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: e.target.value })} />
             </Grid>
             <Grid item xs={6}>
-                <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
+                <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(e) => setFormData({ ...formData, date: formatDate(e.target.value) })} />
             </Grid>
             <Button classname={classes.button} variant="outlined" color="primary" fullWidth onClick={createTransaction} >Create</Button>
         </Grid>
