@@ -6,6 +6,7 @@ import formatDate from '../../../utils/formatDate';
 import { ExpenseTrackerContext } from '../../../context/context';
 import { incomeCategories, expenseCategories } from '../../../constants/categories';
 import { useSpeechContext } from '@speechly/react-client';
+import CustomizedSnackbar from '../../Snackbar/Snackbar';
 
 const initialState = {
     amount: '',
@@ -21,6 +22,7 @@ const Form = () => {
     const { addTransaction } = useContext(ExpenseTrackerContext);
     // Our speech words stored in segment below
     const { segment } = useSpeechContext();
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         if (segment) {
@@ -65,6 +67,8 @@ const Form = () => {
         if (Number.isNaN(Number(formData.amount)) || !formData.date.includes('-')) return;
 
         const transaction = { ...formData, amount: Number(formData.amount), id: uuidv4() }
+
+        setOpen(true);
         addTransaction(transaction);
         setFormData(initialState);
     }
@@ -73,6 +77,7 @@ const Form = () => {
 
     return (
         <Grid container spacing={2}>
+            <CustomizedSnackbar open={open} setOpen={setOpen}/>
             <Grid item xs={12}>
                 <Typography align="center" variant="subtitle1" gutterBottom style={{ marginTop: '10px' }}>
                     {segment && <> {segment.words.map((w) => w.value).join(' ')}  </>}
