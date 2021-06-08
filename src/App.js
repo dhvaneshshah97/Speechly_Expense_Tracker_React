@@ -20,8 +20,8 @@ const App = () => {
                     <Details title="Expense" />
                 </Grid>
             </Grid>
-            <PushToTalkButtonContainer>
-                <PushToTalkButton />
+            <PushToTalkButtonContainer >
+                <PushToTalkButton size="5rem" />
                 <ErrorPanel />
             </PushToTalkButtonContainer>
         </div>
