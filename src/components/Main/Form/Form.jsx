@@ -62,7 +62,7 @@ const Form = () => {
                 createTransaction();
             }
         }
-    }, [segment]);
+    }, [segment]); //  eslint-disable-line react-hooks/exhaustive-deps
 
 
     const createTransaction = async () => {
