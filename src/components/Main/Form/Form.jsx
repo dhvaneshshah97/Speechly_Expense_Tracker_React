@@ -23,6 +23,7 @@ const Form = () => {
     // Our speech words stored in segment below
     const { segment } = useSpeechContext();
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         if (segment) {
@@ -63,8 +64,14 @@ const Form = () => {
         }
     }, [segment]);
 
-    const createTransaction = () => {
-        if (Number.isNaN(Number(formData.amount)) || !formData.date.includes('-')) return;
+
+    const createTransaction = async () => {
+        // console.log();
+        if (formData.amount === '' || !formData.date.includes('-') || formData.category === '') {
+            setOpen(true);
+            setError(true);
+            return;
+        };
 
         const transaction = { ...formData, amount: Number(formData.amount), id: uuidv4() }
 
@@ -77,7 +84,7 @@ const Form = () => {
 
     return (
         <Grid container spacing={2}>
-            <CustomizedSnackbar open={open} setOpen={setOpen}/>
+            <CustomizedSnackbar open={open} setOpen={setOpen} error={error} setError={setError} />
             <Grid item xs={12}>
                 <Typography align="center" variant="subtitle1" gutterBottom style={{ marginTop: '10px' }}>
                     {segment && <> {segment.words.map((w) => w.value).join(' ')}  </>}

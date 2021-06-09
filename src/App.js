@@ -22,11 +22,11 @@ const App = () => {
                 <Grid item xs={12} sm={3} className={classes.last}>
                     <Details title="Expense" />
                 </Grid>
+                <PushToTalkButtonContainer >
+                    <PushToTalkButton size="4.5rem" />
+                    <ErrorPanel />
+                </PushToTalkButtonContainer>
             </Grid>
-            <PushToTalkButtonContainer >
-                <PushToTalkButton size="5rem" />
-                <ErrorPanel />
-            </PushToTalkButtonContainer>
         </div>
     );
 }
