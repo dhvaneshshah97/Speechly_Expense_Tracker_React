@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-An elegant, voice-controlled expense tracker powered by React, Material and Speechly
+  <b>An elegant, voice-controlled expense tracker powered by React, Material and Speechly</b>
 </td>
 </tr>
 </table>
