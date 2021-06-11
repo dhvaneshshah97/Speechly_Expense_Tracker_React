@@ -33,5 +33,5 @@
 
 ## Credits
 
-- Original Project - (<a src="https://github.com/adrianhajdin/speechly_expense_tracker_project">Here</a>)
-- All credit goes to Adrian Hajdin - JavaScript Mastery (<a src="https://github.com/adrianhajdin">Check this out, You can find much more exciting React Apps here</a>)
+- Original Project - (<a href="https://github.com/adrianhajdin/speechly_expense_tracker_project">Here</a>)
+- All credit goes to Adrian Hajdin - JavaScript Mastery (<a href="https://github.com/adrianhajdin">Check this out, You can find much more exciting React Apps here</a>)
